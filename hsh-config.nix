@@ -199,6 +199,7 @@
      nushell
      godot_4
      bottles
+     zed-browser
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
