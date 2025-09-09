@@ -22,7 +22,7 @@ in
       socat
       kdePackages.qtdeclarative
     ];
-    programs.niri.package = pkgs.niri;
+    programs.niri.package = pkgs.niri-unstable;
     programs.niri.enable = true;
     xdg.portal = {
       enable = true;

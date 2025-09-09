@@ -9,6 +9,6 @@ else
     copy_plain="xclip -i -sel c -t text/plain"
     copy_uri="xclip -i -sel c -t text/uri-list"
 fi
-list=echo "${files[@]}" | sed 's/ file:\/\//\r\nfile:\/\//g'
+list=$(echo "${files[@]}" | sed 's/ file:\/\//\r\nfile:\/\//g')
 echo "$list" | $copy_plain
 echo "$list" | $copy_uri

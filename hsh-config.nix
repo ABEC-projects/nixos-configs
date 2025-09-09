@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, appimageTools, fetchurl,  ... }: {
   plug = {
     enable = true;
     sway.enable = true;
@@ -119,7 +119,6 @@
      protontricks
      prismlauncher
      bacon
-     webcord
      qbittorrent
      lsof
      bat
@@ -143,7 +142,6 @@
      tun2socks
      ventoy
      krita
-     maim
      xdotool
      nil
      rusty-man
@@ -151,7 +149,6 @@
      lutris
      tetrio-desktop
      gh
-     usbmuxd
      libimobiledevice
      fd
      nodejs_22
@@ -202,6 +199,7 @@
      nushell
      godot_4
      bottles
+     (import ./plug/packages/zed.nix {inherit lib appimageTools fetchurl;})
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
