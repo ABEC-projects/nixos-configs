@@ -24,9 +24,6 @@
     ./copyparty.nix
     ./niri.nix
   ];
-  nixpkgs.overlays = [
-    (import ./packages/overlay.nix)
-  ];
 
   options.plug.enable = lib.mkEnableOption "plug";
 
@@ -34,6 +31,9 @@
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
+    ];
+    nixpkgs.overlays = [
+      (import ./packages/overlay.nix)
     ];
     nixpkgs.config.allowUnfree = true;
     environment.sessionVariables = {
