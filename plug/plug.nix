@@ -23,6 +23,8 @@
     ./hibernation.nix
     ./copyparty.nix
     ./niri.nix
+  ];
+  nixpkgs.overlays = [
     (import ./packages/overlay.nix)
   ];
 
