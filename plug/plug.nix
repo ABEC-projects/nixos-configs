@@ -23,6 +23,7 @@
     ./hibernation.nix
     ./copyparty.nix
     ./niri.nix
+    (import ./packages/overlay.nix)
   ];
 
   options.plug.enable = lib.mkEnableOption "plug";

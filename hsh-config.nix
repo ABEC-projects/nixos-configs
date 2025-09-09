@@ -1,4 +1,4 @@
-{ pkgs, lib, appimageTools, fetchurl,  ... }: {
+{ pkgs, ... }: {
   plug = {
     enable = true;
     sway.enable = true;
@@ -199,7 +199,6 @@
      nushell
      godot_4
      bottles
-     (import ./plug/packages/zed.nix {inherit lib appimageTools fetchurl;})
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
