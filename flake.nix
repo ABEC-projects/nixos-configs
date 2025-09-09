@@ -20,7 +20,7 @@
     nix-alien.inputs.nixpkgs.follows = "nixpkgs";
     copyparty.url = "github:9001/copyparty";
     niri.url = "github:sodiboo/niri-flake";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    niri.inputs.nixpkgs.follows = "unstable";
   };
 
   outputs =

@@ -16,9 +16,7 @@ in
 
   config = pluglib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      niri-unstable
       fuzzel
-      xwayland-satellite-unstable
       swww
       unstable.quickshell
       socat
