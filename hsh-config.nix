@@ -1,14 +1,12 @@
 { pkgs, ... }: {
   plug = {
     enable = true;
-    sway.enable = true;
-    i3.enable = true;
+    sway.enable = false;
     intercept.enable = true;
     stylix.enable = true;
     yazi.enable = true;
     swap.enable = true;
     machineType = "main_pc";
-    copyparty.enable = true;
     niri.enable = true;
     user = {
       enable = true;
@@ -143,7 +141,6 @@
      ventoy
      krita
      xdotool
-     nil
      rusty-man
      libclang
      lutris
@@ -186,8 +183,6 @@
      playerctl
      # mpdris2
      wl-clipboard
-     hyprshot
-     hyprpaper
      puddletag
      discord
      grim

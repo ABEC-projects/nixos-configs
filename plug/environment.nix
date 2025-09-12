@@ -38,7 +38,10 @@ in
 
   config = lib.mkMerge [
     {
-      environment.variables = { EDITOR = "nvim"; TERMINAL = "kitty"; };
+      environment.variables = {
+        EDITOR = "nvim";
+        TERMINAL = "kitty";
+      };
       environment.systemPackages = with pkgs; [
         cachix
       ];
@@ -57,7 +60,6 @@ in
         sqlite
         yazi
         maestral
-        nil
         lsd
         bluetui
         pavucontrol
@@ -69,14 +71,27 @@ in
     })
     (pluglib.mkIf (config.plug.machineType != "server") {
       environment.systemPackages =
-        with pkgs;
         builtins.concatLists [
           guiApps
         ];
       environment.sessionVariables = {
         TERM = "kitty";
         EDITOR = "nvim";
+        XMODIFIERS="@im=fcitx";
+        XMODIFIER="@im=fcitx";
+        GTK_IM_MODULE="fcitx";
+        QT_IM_MODULE="fcitx";
       };
+      fonts.packages = with pkgs; [
+        nerdfonts.bitstrom-vera
+        ipafont
+      ];
+
+      # Japanize
+      i18n.inputMethod.enabled = "fcitx";
+
+      i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+
     })
   ];
 }

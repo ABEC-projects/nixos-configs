@@ -53,6 +53,7 @@ in
 
       spawn-at-startup = [
         { command = [ "swww-daemon" ]; }
+        { command = [ "fcitx" ]; }
       ];
 
       window-rules = [
