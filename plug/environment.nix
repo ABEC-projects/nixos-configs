@@ -88,7 +88,7 @@ in
       ];
 
       # Japanize
-      i18n.inputMethod.enabled = "fcitx";
+      i18n.inputMethod.enabled = "fcitx5";
 
       i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
 
