@@ -83,14 +83,13 @@ in
         QT_IM_MODULE="fcitx";
       };
       fonts.packages = with pkgs; [
-        nerdfonts.bitstrom-vera
+        nerd-fonts.bitstream-vera-sans-mono
         ipafont
       ];
 
       # Japanize
-      i18n.inputMethod.enabled = "fcitx5";
-
-      i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+      i18n.inputMethod.type = "fcitx5";
+      i18n.inputMethod.enable = true;
 
     })
   ];
