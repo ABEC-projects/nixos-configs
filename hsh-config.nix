@@ -175,8 +175,6 @@
      blender
      icu
      helix
-     obs-studio
-     obs-studio-plugins.wlrobs
      vesktop
      bluetui
      wofi
@@ -197,6 +195,13 @@
      bottles
      zen-browser
   ];
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+     wlrobs
+    ];
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.05"
