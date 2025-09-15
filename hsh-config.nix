@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   plug = {
     enable = true;
-    sway.enable = false;
+    sway.enable = true;
+    i3.enable = true;
     intercept.enable = true;
     stylix.enable = true;
     yazi.enable = true;

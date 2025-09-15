@@ -19,6 +19,7 @@ in
       fuzzel
       swww
       unstable.quickshell
+      unstable.xwayland-satellite-unstable
       socat
       kdePackages.qtdeclarative
     ];
@@ -27,6 +28,7 @@ in
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
       config.niri = {
         default = "gtk";
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
