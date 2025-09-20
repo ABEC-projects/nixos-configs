@@ -194,6 +194,7 @@
      godot_4
      bottles
      zen-browser
+     anki
   ];
 
   programs.obs-studio = {

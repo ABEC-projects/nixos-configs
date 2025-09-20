@@ -70,17 +70,12 @@ in
       ];
     })
     (pluglib.mkIf (config.plug.machineType != "server") {
-      environment.systemPackages =
-        builtins.concatLists [
-          guiApps
-        ];
+      environment.systemPackages = builtins.concatLists [
+        guiApps
+      ];
       environment.sessionVariables = {
         TERM = "kitty";
         EDITOR = "nvim";
-        XMODIFIERS="@im=fcitx";
-        XMODIFIER="@im=fcitx";
-        GTK_IM_MODULE="fcitx";
-        QT_IM_MODULE="fcitx";
       };
       fonts.packages = with pkgs; [
         nerd-fonts.bitstream-vera-sans-mono
@@ -88,8 +83,14 @@ in
       ];
 
       # Japanize
-      i18n.inputMethod.type = "fcitx5";
-      i18n.inputMethod.enable = true;
+      i18n.inputMethod = {
+        enable = true;
+        type = "fcitx5";
+        fcitx5.addons = with pkgs; [
+          fcitx5-mozc
+          fcitx5-gtk
+        ];
+      };
 
     })
   ];
