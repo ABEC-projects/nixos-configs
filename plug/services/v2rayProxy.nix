@@ -12,16 +12,18 @@ in
 
     sops.secrets = {
       proxyConfig = {
-        format = "json";
+        format = "binary";
         sopsFile = ../sops/secrets/proxy-config.json;
-        key = "";
+        owner = "proxyUser";
       };
     };
 
-    uesrs.users.proxyUser = {
+    users.users.proxyUser = {
       isSystemUser = true;
       description = "User for proxy";
+      group = "proxyUser";
     };
+    users.groups.proxyUser = {};
 
     systemd.services.v2rayProxy = {
       enable = true;
@@ -32,7 +34,7 @@ in
         Type = "simple";
         Restart = "always";
         KillSignal = "SIGINT";
-        ExecStart = "${pkgs.v2ray}/bin/v2ray run -c ${config.sops.secrets.proxyConfig.path}";
+        ExecStart = "${pkgs.v2ray}/bin/v2ray run -format json -c ${config.sops.secrets.proxyConfig.path}";
         User = "proxyUser";
       };
     };

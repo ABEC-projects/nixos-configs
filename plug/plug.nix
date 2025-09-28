@@ -24,6 +24,7 @@
     ./copyparty.nix
     ./niri.nix
     ./sops/sops.nix
+    ./services/v2rayProxy.nix
   ];
 
   options.plug.enable = lib.mkEnableOption "plug";

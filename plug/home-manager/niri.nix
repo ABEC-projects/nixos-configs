@@ -23,7 +23,6 @@ in
       cursor = {
         size = 24;
         theme = "Vanilla-DMZ";
-        hide-after-inactive-ms = 3000;
       };
 
       layout = {
