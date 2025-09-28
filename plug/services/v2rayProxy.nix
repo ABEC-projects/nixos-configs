@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }@args:
 let
   pluglib = import ../lib.nix args;
-  cfg = config.plug.v2tayProxy;
+  cfg = config.plug.v2rayProxy;
 in
 {
   options.plug.v2rayProxy = {

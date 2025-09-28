@@ -9,6 +9,7 @@
     swap.enable = true;
     machineType = "main_pc";
     niri.enable = true;
+    v2rayProxy.enable = true;
     user = {
       enable = true;
       name = "abec";
