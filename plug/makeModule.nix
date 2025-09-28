@@ -4,6 +4,7 @@
   nix-alien,
   copyparty,
   niri,
+  sops-nix,
 }:
 {
   imports = [
@@ -12,6 +13,7 @@
     stylix.nixosModules.stylix
     copyparty.nixosModules.default
     niri.nixosModules.niri
+    sops-nix.nixosModules.sops
     {
       environment.systemPackages = [
         nix-alien.packages.x86_64-linux.nix-alien

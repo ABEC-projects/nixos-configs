@@ -23,6 +23,7 @@
     ./hibernation.nix
     ./copyparty.nix
     ./niri.nix
+    ./sops/sops.nix
   ];
 
   options.plug.enable = lib.mkEnableOption "plug";

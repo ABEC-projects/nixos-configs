@@ -18,9 +18,14 @@
 
     nix-alien.url = "github:/thiagokokada/nix-alien";
     nix-alien.inputs.nixpkgs.follows = "nixpkgs";
+
     copyparty.url = "github:9001/copyparty";
+
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "unstable";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -32,6 +37,7 @@
       nix-alien,
       copyparty,
       niri,
+      sops-nix,
       ...
     }:
     {
@@ -54,6 +60,7 @@
               nix-alien
               copyparty
               niri
+              sops-nix
               ;
           })
           {
