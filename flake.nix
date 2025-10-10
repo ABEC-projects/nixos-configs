@@ -26,6 +26,9 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -38,6 +41,7 @@
       copyparty,
       niri,
       sops-nix,
+      zen-browser,
       ...
     }:
     {
@@ -66,6 +70,7 @@
           {
             networking.hostName = "hsh";
             system.stateVersion = "24.05";
+            environment.systemPackages = [ zen-browser.packages."${system}".default ];
           }
           ./hsh-config.nix
           ./hsh-hardware.nix
