@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   plug = {
     enable = true;
     sway.enable = true;
@@ -10,6 +10,7 @@
     machineType = "main_pc";
     niri.enable = true;
     v2rayProxy.enable = true;
+    copyparty.enable = true;
     user = {
       enable = true;
       name = "abec";
@@ -17,6 +18,7 @@
       moreGroups = [ "plugdev" ];
     };
   };
+  services.copyparty.enable = lib.mkForce false;
 
   home-manager.users.abec.programs.niri.settings.outputs = {
     "DP-2" = {
