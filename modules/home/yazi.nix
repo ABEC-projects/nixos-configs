@@ -1,11 +1,9 @@
-{ osConfig, pkgs, ... }@args:
+{ flake, pkgs, ... }@args:
 let
-  pluglib = import ./lib.nix args;
-  getScript = import ../getScript.nix args;
-  cfg = osConfig.plug.yazi;
+  inherit (flake.inputs) self;
 in
 {
-  config = pluglib.mkIf cfg.enable {
+  config = {
     programs.yazi = {
       enable = true;
       keymap = {
@@ -17,7 +15,7 @@ in
             ];
             run = ''
               shell --confirm '
-              ${getScript "cpf"} "$@"
+              ${self.packages.${pkgs.system}.cpf} "$@"
               '
             '';
             desc = "Copy files to clipboard";
@@ -33,7 +31,7 @@ in
             { run = ''${pkgs.nomacs}/bin/nomacs "$@" ''; orthan = true; desc = "Open image in nomacs";}
           ];
           magick = [
-            { run = ''${getScript "magick_convert"} "$@"''; block = true; desc = "Convert images with magick"; }
+            { run = ''${self.packages.${pkgs.system}.cpf} "$@"''; block = true; desc = "Convert images with magick"; }
           ];
         };
         open = {

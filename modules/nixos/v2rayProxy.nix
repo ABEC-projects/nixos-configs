@@ -1,19 +1,10 @@
-{ lib, config, pkgs, ... }@args:
-let
-  pluglib = import ../lib.nix args;
-  cfg = config.plug.v2rayProxy;
-in
+{ config, pkgs, ... }:
 {
-  options.plug.v2rayProxy = {
-    enable = lib.mkEnableOption "v2rayProxy";
-  };
-
-  config = pluglib.mkIf cfg.enable {
-
+  config = {
     sops.secrets = {
       proxyConfig = {
         format = "binary";
-        sopsFile = ../sops/secrets/proxy-config.json;
+        sopsFile = ./common/sops/secrets/proxy-config.json;
         owner = "proxyUser";
       };
     };

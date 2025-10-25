@@ -1,9 +1,6 @@
-{ lib, osConfig, pkgs, ... }@args:
-let
-  pluglib = import ./lib.nix args;
-in
+{ pkgs, ... }:
 {
-  config = pluglib.mkIf (osConfig.plug.machineType != "server") {
+  config = {
     home.pointerCursor = {
       enable = true;
       gtk.enable = true;

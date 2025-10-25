@@ -1,20 +1,18 @@
 {
   config,
   lib,
-  pkgs,
   ...
-}@args:
+}:
 let
-  pluglib = import ./lib.nix args;
-  cfg = config.plug.hibernation;
+  cfg = config.hibernation;
 in
 {
-  options.plug.hibernation = {
-    enable = lib.mkEnableOption "hibernation";
+  options.hibernation = {
     resume_offset = lib.mkOption {
       type = lib.types.int;
       description = lib.literalMD ''
         phisical_offset from 'filefrag -v <swapfile> | head'.
+        Swap file should also have sufficient size!
         See [this](https://nixos.wiki/wiki/Hibernation) NixOS wiki page.
       '';
     };
@@ -24,20 +22,17 @@ in
     };
   };
 
-  config = pluglib.mkIf cfg.enable {
-
+  config = {
     assertions = [
       {
         assertion = cfg.root_uuid != null;
-        message = "plug.hibernation.root_uuid should be set!";
+        message = "hibernation.root_uuid should be set!";
       }
       {
         assertion = cfg.resume_offset != null;
-        message = "plug.hibernation.resume_offset should be set!";
+        message = "hibernation.resume_offset should be set!";
       }
     ];
-
-    plug.swap.enable = true;
 
     boot.kernelParams = [
       "resume_offset=${builtins.toString cfg.resume_offset}"

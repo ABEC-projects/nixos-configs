@@ -1,6 +1,7 @@
 files=()
 for f in "$@"; do
-    files+=("file://${f} ")
+    abs_path=$(realpath "${f}")
+    files+=("file://${abs_path} ")
 done
 if [ -n "$WAYLAND_DISPLAY" ]; then
     copy_plain="wl-copy -t text/plain"

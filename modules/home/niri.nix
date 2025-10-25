@@ -1,10 +1,7 @@
-{ osConfig, config, ... }@args:
-let
-  pluglib = import ./lib.nix args;
-  cfg = osConfig.plug.niri;
-in
+
+{ config, ... }:
 {
-  config = pluglib.mkIf cfg.enable {
+  config = {
     programs.niri.settings = {
 
       input = {
@@ -419,13 +416,13 @@ in
           action = toggle-column-tabbed-display;
         };
         "Print" = {
-          action = screenshot;
+          action.screenshot = [ ];
         };
         "Ctrl+Print" = {
           action.screenshot-screen = [ ];
         };
         "Alt+Print" = {
-          action = screenshot-window;
+          action.screenshot-window = [ ];
         };
         "Mod+Escape" = {
           allow-inhibiting = false;

@@ -1,20 +1,19 @@
 {
-  description = "NixOS config for my computers";
-
-  # It is also possible to "inherit" an input from another input. This is useful to minimize
-  # flake dependencies. For example, the following sets the nixpkgs input of the top-level flake
-  # to be equal to the nixpkgs input of the nixops input of the top-level flake:
   inputs = {
-    nixpkgs.url = "github:/NixOS/nixpkgs/nixos-25.05";
+    # Principle inputs (updated by `nix run .#update`)
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:/NixOS/nixpkgs/nixos-unstable";
-
-    home-manager.url = "github:/nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixos-unified.url = "github:srid/nixos-unified";
 
-    stylix = {
-      url = "github:/nix-community/stylix/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Software inputs
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:/nix-community/stylix/release-25.05";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-alien.url = "github:/thiagokokada/nix-alien";
     nix-alien.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,50 +30,11 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # Wired using https://nixos-unified.org/autowiring.html
   outputs =
-    {
-      nixpkgs,
-      unstable,
-      home-manager,
-      stylix,
-      nix-alien,
-      copyparty,
-      niri,
-      sops-nix,
-      zen-browser,
-      ...
-    }:
-    {
-
-      # Used with `nixos-rebuild --flake .#<hostname>`
-      # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
-      nixosConfigurations.hsh = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = {
-          unstable = import unstable {
-            inherit system;
-            overlays = [ niri.overlays.niri ];
-          };
-        };
-        modules = [
-          ((import ./plug/makeModule.nix) {
-            inherit
-              home-manager
-              stylix
-              nix-alien
-              copyparty
-              niri
-              sops-nix
-              ;
-          })
-          {
-            networking.hostName = "hsh";
-            system.stateVersion = "24.05";
-            environment.systemPackages = [ zen-browser.packages."${system}".default ];
-          }
-          ./hsh-config.nix
-          ./hsh-hardware.nix
-        ];
-      };
+    inputs:
+    inputs.nixos-unified.lib.mkFlake {
+      inherit inputs;
+      root = ./.;
     };
 }
