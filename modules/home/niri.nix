@@ -1,7 +1,19 @@
-
-{ config, ... }:
+{ config, flake, ... }:
 {
+  imports = [
+    flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+  ];
   config = {
+    programs.dankMaterialShell = {
+      enable = true;
+      niri = {
+        enableKeybinds = true;
+      };
+      enableSystemMonitoring = true;
+      enableSystemd = true;
+      enableDynamicTheming = true;
+    };
     programs.niri.settings = {
 
       input = {
@@ -70,24 +82,8 @@
       binds = with config.lib.niri.actions; {
         "Mod+shift+Slash".action = show-hotkey-overlay;
         "Mod+Return".action = spawn "kitty";
-        "Mod+Space".action = spawn "fuzzel";
-        "Mod+Alt+L".action = spawn "swaylock";
-        XF86AudioRaiseVolume = {
-          allow-when-locked = true;
-          action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
-        };
-        XF86AudioLowerVolume = {
-          allow-when-locked = true;
-          action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
-        };
-        XF86AudioMute = {
-          allow-when-locked = true;
-          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
-        };
-        XF86AudioMicMute = {
-          allow-when-locked = true;
-          action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
-        };
+        # "Mod+Space".action = spawn "fuzzel";
+        # "Mod+Alt+L".action = spawn "swaylock";
         "Mod+F3" = {
           allow-when-locked = true;
           action = spawn "mpc" "volume" "-1";
@@ -364,9 +360,6 @@
         "Mod+BracketRight" = {
           action = consume-or-expel-window-right;
         };
-        "Mod+Comma" = {
-          action = consume-window-into-column;
-        };
         "Mod+Period" = {
           action = expel-window-from-column;
         };
@@ -406,10 +399,10 @@
         "Mod+Shift+Equal" = {
           action = set-window-height "+10%";
         };
-        "Mod+V" = {
+        "Mod+Z" = {
           action = toggle-window-floating;
         };
-        "Mod+Shift+V" = {
+        "Mod+Shift+Z" = {
           action = switch-focus-between-floating-and-tiling;
         };
         "Mod+W" = {

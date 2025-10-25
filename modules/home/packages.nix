@@ -16,6 +16,7 @@
     # Nix dev
     cachix
     nixd
+    nil
     nix-info
     nixpkgs-fmt
 

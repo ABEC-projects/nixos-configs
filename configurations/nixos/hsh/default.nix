@@ -19,6 +19,9 @@ in
     self.nixosModules.intercept
     self.nixosModules.stylix
     self.nixosModules.v2rayProxy
+    # NOTE: doesn't work for now
+    # self.nixosModules.ime
+    self.nixosModules.fonts
 
     copyparty.nixosModules.default
 
@@ -44,6 +47,7 @@ in
         file
         bluetui
         nftables
+        tree-sitter
       ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
@@ -107,7 +111,13 @@ in
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;
-      systemd.services.maestral = {
+      systemd.services.maestral = let
+        # There was a problem with maestral package on unstable
+        stable = import flake.inputs.nixpkgs-stable {
+          system = pkgs.system;
+        };
+        in
+        {
         enable = true;
         wantedBy = [ "default.target" ];
         after = [ "network.target" ];
@@ -116,7 +126,7 @@ in
           Type = "simple";
           Restart = "always";
           KillSignal = "SIGINT";
-          ExecStart = "${pkgs.maestral}/bin/maestral start -f";
+          ExecStart = "${stable.maestral}/bin/maestral start -f";
           User = "abec";
         };
       };
