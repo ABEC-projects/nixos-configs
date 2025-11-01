@@ -1,8 +1,17 @@
-{ config, flake, ... }:
+{ pkgs, config, flake, ... }:
+let
+  unstable = (
+    import flake.self.inputs.unstable {
+      system = pkgs.system;
+      overlays = [flake.inputs.niri.overlays.niri];
+    }
+  );
+in
 {
   imports = [
     flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    ./quickshell.nix
   ];
   config = {
     programs.dankMaterialShell = {
@@ -13,6 +22,7 @@
       enableSystemMonitoring = true;
       enableSystemd = true;
       enableDynamicTheming = true;
+      quickshell.package = unstable.quickshell;
     };
     programs.niri.settings = {
 

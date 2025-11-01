@@ -1,11 +1,10 @@
 {
   inputs = {
     # Principle inputs (updated by `nix run .#update`)
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url =  "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:/NixOS/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -15,7 +14,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:/nix-community/stylix";
+    stylix.url = "github:/nix-community/stylix/release-25.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-alien.url = "github:/thiagokokada/nix-alien";

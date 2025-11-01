@@ -3,6 +3,6 @@
     ./niri.nix
   ];
 
-  services.displayManager.gdm.enable = true;
-  services.displayManager.gdm.wayland = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
 }
