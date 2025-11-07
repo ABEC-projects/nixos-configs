@@ -48,6 +48,7 @@ in
         bluetui
         nftables
         tree-sitter
+        transmission_4
       ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
@@ -71,7 +72,7 @@ in
       });
 
       users.users.abec = {
-        extraGroups = ["wheel"];
+        extraGroups = ["wheel" config.services.transmission.group ];
       };
 
       users.defaultUserShell = pkgs.zsh;
@@ -111,6 +112,14 @@ in
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;
+      services.transmission = {
+        enable = true;
+        package = pkgs.transmission_4;
+        settings = {
+          download-dir = "/mnt/Storage/Torrents";
+        };
+      };
+
       systemd.services.maestral =
         {
         enable = true;
