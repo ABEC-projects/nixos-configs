@@ -49,6 +49,8 @@ in
         nftables
         tree-sitter
         transmission_4
+        transmission-remote-gtk
+        stig
       ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
@@ -117,6 +119,9 @@ in
         package = pkgs.transmission_4;
         settings = {
           download-dir = "/mnt/Storage/Torrents";
+          watch-dir-enabled = true;
+          watch-dir = "/home/abec/Torrents/watchlist";
+          incomplete-dir = "/mnt/Storage/Torrents/.incomplete";
         };
       };
 
