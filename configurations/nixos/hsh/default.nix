@@ -117,6 +117,8 @@ in
       services.transmission = {
         enable = true;
         package = pkgs.transmission_4;
+        openPeerPors = true;
+        openRPCPorts = true;
         settings = {
           download-dir = "/mnt/Storage/Torrents";
           watch-dir-enabled = true;
