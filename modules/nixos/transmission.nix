@@ -1,7 +1,7 @@
 { pkgs, lib, config, ...}: {
   options = {
     transmissionUsers = with lib; mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       description = "List of users to have access to torrent files";
       default = [];
       defaultText = "[]";
