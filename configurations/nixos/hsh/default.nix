@@ -22,6 +22,7 @@ in
     self.nixosModules.ime
     self.nixosModules.fonts
     self.nixosModules.obs-studio-virtual-camera
+    self.nixosModules.transmission
 
     copyparty.nixosModules.default
 
@@ -48,11 +49,10 @@ in
         bluetui
         nftables
         tree-sitter
-        transmission_4
-        transmission-remote-gtk
-        stig
       ];
 
+      # configs for modules
+      transmissionUsers = [ "abec" ];
       home-manager.users = config.helpers.forEveryUser (_: {
         programs.niri.settings.outputs = {
           "DP-2" = {
@@ -74,7 +74,7 @@ in
       });
 
       users.users.abec = {
-        extraGroups = ["wheel" config.services.transmission.group ];
+        extraGroups = [ "wheel" ];
       };
 
       users.defaultUserShell = pkgs.zsh;
@@ -114,18 +114,6 @@ in
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;
-      services.transmission = {
-        enable = true;
-        package = pkgs.transmission_4;
-        openPeerPors = true;
-        openRPCPorts = true;
-        settings = {
-          download-dir = "/mnt/Storage/Torrents";
-          watch-dir-enabled = true;
-          watch-dir = "/home/abec/Torrents/watchlist";
-          incomplete-dir = "/mnt/Storage/Torrents/.incomplete";
-        };
-      };
 
       systemd.services.maestral =
         {
