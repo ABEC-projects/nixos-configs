@@ -74,6 +74,8 @@ in
         { command = [ "fcitx5" ]; }
       ];
 
+      prefer-no-csd = true;
+
       window-rules = [
         {
           matches = [
