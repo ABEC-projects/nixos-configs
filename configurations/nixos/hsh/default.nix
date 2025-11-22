@@ -23,7 +23,6 @@ in
     self.nixosModules.fonts
     self.nixosModules.obs-studio-virtual-camera
     self.nixosModules.transmission
-    self.nixosModules.steam
 
     copyparty.nixosModules.default
 
@@ -51,6 +50,7 @@ in
         bluetui
         nftables
         tree-sitter
+        gamescope
       ];
 
       # configs for modules
@@ -112,6 +112,7 @@ in
       };
 
       hardware.opentabletdriver.enable = true;
+      programs.steam.enable = true;
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;
