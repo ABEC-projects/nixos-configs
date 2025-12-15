@@ -66,6 +66,7 @@ in
     steamtinkerlaunch
     bottles
     anki
+    jdk
   ];
 
   programs.obs-studio = {
