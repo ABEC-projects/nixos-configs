@@ -67,6 +67,7 @@ in
     bottles
     anki
     jdk
+    emacs
   ];
 
   programs.obs-studio = {

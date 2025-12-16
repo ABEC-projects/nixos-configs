@@ -51,6 +51,7 @@ in
         nftables
         tree-sitter
         gamescope
+        bashmount
       ];
 
       # configs for modules
