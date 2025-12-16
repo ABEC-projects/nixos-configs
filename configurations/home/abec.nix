@@ -26,7 +26,7 @@ in
     feh
     mpv
     ncmpcpp
-    mpc-cli
+    mpc
     keepassxc
     kdePackages.dolphin
     qpwgraph

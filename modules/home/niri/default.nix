@@ -11,7 +11,6 @@ in
   imports = [
     flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-    ./quickshell.nix
   ];
   config = {
     programs.dankMaterialShell = {
