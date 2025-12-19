@@ -68,6 +68,10 @@ in
     anki
     jdk
     emacs
+    cmigemo
+    cmake
+    python
+    shellcheck
   ];
 
   programs.obs-studio = {
