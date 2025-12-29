@@ -75,10 +75,6 @@
     enable = true;
     enable32Bit = true;
   };
-  hardware.andgpu.amdvlk = {
-    enable = true;
-    enable32Bit = true;
-  };
 
   system.stateVersion = "24.05";
 }

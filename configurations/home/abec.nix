@@ -67,10 +67,9 @@ in
     bottles
     anki
     jdk
-    emacs
     cmigemo
     cmake
-    python
+    python3
     shellcheck
   ];
 
