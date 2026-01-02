@@ -17,7 +17,6 @@ in
 
     self.nixosModules.default
     self.nixosModules.intercept
-    self.nixosModules.stylix
     self.nixosModules.v2rayProxy
     self.nixosModules.ime
     self.nixosModules.fonts
