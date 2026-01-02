@@ -57,6 +57,10 @@ in
 
       # configs for modules
       transmissionUsers = [ "abec" ];
+
+      virtualisation.virtualbox.host.enable = true;
+      users.extraGroups.vboxusers.members = [ "abec" ];
+
       home-manager.users = config.helpers.forEveryUser (_: {
         programs.niri.settings.outputs = {
           "DP-2" = {
