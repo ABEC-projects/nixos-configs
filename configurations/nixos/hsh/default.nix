@@ -126,6 +126,7 @@ in
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;
+      services.udisks2.enable = true;
 
       systemd.services.maestral =
         {
