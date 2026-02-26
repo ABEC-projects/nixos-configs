@@ -22,7 +22,7 @@ in
     self.nixosModules.fonts
     self.nixosModules.obs-studio-virtual-camera
     self.nixosModules.transmission
-    self.nixosModules.emacs
+    self.nixosModules.piper
 
     copyparty.nixosModules.default
 
@@ -52,6 +52,7 @@ in
         tree-sitter
         gamescope
         bashmount
+        emacs
       ];
 
       # configs for modules
