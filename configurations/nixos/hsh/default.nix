@@ -23,6 +23,7 @@ in
     self.nixosModules.obs-studio-virtual-camera
     self.nixosModules.transmission
     self.nixosModules.piper
+    self.nixosModules.jellyfin
 
     copyparty.nixosModules.default
 
