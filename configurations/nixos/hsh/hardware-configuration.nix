@@ -57,6 +57,11 @@
     device = "/dev/disk/by-label/STORAGE";
     fsType = "ext4";
   };
+  fileSystems."/mnt/Compressed" = {
+    device = "/dev/disk/by-label/COMPRESSED";
+    fsType = "btrfs";
+    options = [ "compress=zlib:6" ];
+  };
 
   swapDevices = [
     { device = "/dev/disk/by-uuid/41a3e8b6-676f-431b-a491-c946efb03489"; }

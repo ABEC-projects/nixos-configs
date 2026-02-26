@@ -144,7 +144,7 @@ in
         };
       };
       systemd.services.factorio-custom = {
-        enable = true;
+        enable = false;
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" ];
         description = "factorio server";
