@@ -31,6 +31,7 @@ in
       nixpkgs.overlays = [
         copyparty.overlays.default
       ];
+      boot.kernelPackages = pkgs.linuxPackages_latest;
       environment.systemPackages = with pkgs; [
         nix-alien.packages.x86_64-linux.nix-alien
         neovim
@@ -125,6 +126,7 @@ in
           proton-ge-bin
         ];
       };
+      programs.gamescope.enable = true;
       programs.zsh.enable = true;
       programs.nix-ld.enable = true;
       services.earlyoom.enable = true;

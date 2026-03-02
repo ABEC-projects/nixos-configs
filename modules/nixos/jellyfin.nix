@@ -1,5 +1,4 @@
 { flake, pkgs, ... }:
-
 let
   unstable = (
     import flake.self.inputs.unstable {
@@ -17,5 +16,4 @@ in
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
-
 }
