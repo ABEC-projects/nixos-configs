@@ -24,6 +24,7 @@ in
     self.nixosModules.transmission
     self.nixosModules.piper
     self.nixosModules.jellyfin
+    self.nixosModules.flatpak
 
     copyparty.nixosModules.default
 
