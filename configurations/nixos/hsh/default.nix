@@ -32,7 +32,7 @@ in
       nixpkgs.overlays = [
         copyparty.overlays.default
       ];
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot.kernelPackages = pkgs.linuxPackages_6_18;
       environment.systemPackages = with pkgs; [
         nix-alien.packages.x86_64-linux.nix-alien
         neovim

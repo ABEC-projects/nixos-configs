@@ -15,6 +15,7 @@ in
   config = {
     programs.dankMaterialShell = {
       enable = true;
+      dgop.package = unstable.dgop;
       niri = {
         enableKeybinds = true;
       };
