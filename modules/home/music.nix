@@ -8,6 +8,7 @@
       extraConfig = ''
         auto_update "yes"
         replaygain "track"
+        bind_to_address "192.168.88.73"
         audio_output {
           type            "pulse"
           name            "default (pulse audio)"
