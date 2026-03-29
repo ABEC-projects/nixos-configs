@@ -30,6 +30,10 @@
       ncmpcpp
       rmpc
       pms
+      picard
+      rsgain
+      supersonic-wayland
+      jellyfin-desktop
     ];
   };
 }
