@@ -20,57 +20,7 @@ in
     TERMINAL = "kitty";
   };
 
-  home.packages = with pkgs; [
-    self.inputs.zen-browser.packages."${system}".default
-    kitty
-    feh
-    mpv
-    ncmpcpp
-    mpc
-    keepassxc
-    kdePackages.dolphin
-    qpwgraph
-    pavucontrol
-    nomacs
-    protontricks
-    prismlauncher
-    qbittorrent
-    r2modman
-    krita
-    (import self.inputs.unstable {
-      system = pkgs.system;
-      config.allowUnfree = true;
-    }).lutris
-    tetrio-desktop
-    gh
-    libimobiledevice
-    nodejs_latest
-    jq
-    yt-dlp
-    localsend
-    libreoffice
-    telegram-desktop
-    obsidian
-    speedcrunch
-    prusa-slicer
-    freecad-wayland
-    gamemode
-    ldtk
-    shotcut
-    blender
-    helix
-    playerctl
-    puddletag
-    discord
-    ffmpeg
-    steamtinkerlaunch
-    bottles
-    anki
-    jdk
-    cmigemo
-    cmake
-    python3
-    shellcheck
+  home.packages = [
   ];
 
   programs.obs-studio = {
