@@ -184,20 +184,6 @@ in
       services.earlyoom.enable = true;
       services.udisks2.enable = true;
 
-      systemd.services.maestral =
-        {
-        enable = true;
-        wantedBy = [ "default.target" ];
-        after = [ "network.target" ];
-        description = "dropbox client";
-        serviceConfig = {
-          Type = "simple";
-          Restart = "always";
-          KillSignal = "SIGINT";
-          ExecStart = "${pkgs.maestral}/bin/maestral start -f";
-          User = "abec";
-        };
-      };
       systemd.services.factorio-custom = {
         enable = false;
         wantedBy = [ "multi-user.target" ];
