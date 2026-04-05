@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }: {
   options = {
-    transmissionUsers = with lib; mkOption {
+    wiresharkUsers = with lib; mkOption {
       type = types.listOf types.str;
       description = "List of users to have access to wireshark";
       default = [ "abec" ];
@@ -19,6 +19,6 @@
         "${user}" = {
           extraGroups = [ "wireshark" ];
         };
-      }) config.transmissionUsers);
+      }) config.wiresharkUsers);
   };
 }

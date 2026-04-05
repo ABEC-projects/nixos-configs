@@ -25,6 +25,7 @@ in
     self.nixosModules.piper
     self.nixosModules.jellyfin
     self.nixosModules.flatpak
+    self.nixosModules.wireshark
 
     copyparty.nixosModules.default
 
