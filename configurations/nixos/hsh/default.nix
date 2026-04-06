@@ -117,6 +117,7 @@ in
       users.extraGroups.vboxusers.members = [ "abec" ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
+        imports = [ self.homeModules.easyeffects ];
         programs.niri.settings.outputs = {
           "DP-2" = {
             focus-at-startup = true;
