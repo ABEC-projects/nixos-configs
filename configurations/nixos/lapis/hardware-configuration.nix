@@ -49,6 +49,11 @@
     enable = true;
     wifi.powersave = false;
   };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   users.users.abec.extraGroups = ["networkmanager"];
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
