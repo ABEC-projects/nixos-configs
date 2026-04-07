@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, osConfig, ...}: {
   home.packages = with pkgs.kdePackages; [
     kio
     kio-fuse
@@ -10,13 +10,7 @@
     plasma-workspace
     ark
   ];
-  xdg.configFile."menus/applications.menu".source =
-    pkgs.kdePackages.plasma-workspace + "/etc/xdg/menus/plasma-applications.menu";
-  xdg.configFile."kdeglobals".text =
-    ''
-      [General]
-        TerminalApplication=${pkgs.kitty}/bin/kitty
-    '';
+
 
   xdg.mimeApps.defaultApplications = {
     "application/x-shellscript" = [ "kitty.desktop" ];
@@ -28,4 +22,12 @@
     };
   };
 
-}
+} // (if osConfig.services.desktopManager.plasma6.enable then [] else {
+  xdg.configFile."menus/applications.menu".source =
+    pkgs.kdePackages.plasma-workspace + "/etc/xdg/menus/plasma-applications.menu";
+  xdg.configFile."kdeglobals".text =
+    ''
+      [General]
+        TerminalApplication=${pkgs.kitty}/bin/kitty
+    '';
+})
