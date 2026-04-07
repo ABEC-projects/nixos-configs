@@ -69,7 +69,6 @@ in
         ncmpcpp
         mpc
         keepassxc
-        kdePackages.dolphin
         qpwgraph
         pavucontrol
         nomacs

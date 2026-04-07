@@ -32,14 +32,17 @@ in
     ];
     programs.niri.package = pkgs.niri-unstable;
     programs.niri.enable = true;
+
     xdg.portal = {
       enable = true;
-      xdgOpenUsePortal = false;
+      xdgOpenUsePortal = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-gtk
+        pkgs.kdePackages.xdg-desktop-portal-kde
       ];
       config.niri = {
-        default = "gnome;gtk";
+        default = "gnome;kde;gtk";
+        "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";
         "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
