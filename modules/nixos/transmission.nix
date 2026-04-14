@@ -18,8 +18,11 @@
       settings = {
         download-dir = "/mnt/Storage/Torrents";
         incomplete-dir = "/mnt/Storage/Torrents/.incomplete";
+        watch-dir-enabled = true;
+        watch-dir = "/mnt/Storage/Torrents/watchdir";
       };
     };
+    systemd.services.transmission.serviceConfig.BindPaths = [ "/mnt/Compressed/Torrents" ];
 
     environment.systemPackages = with pkgs; [
         transmission_4

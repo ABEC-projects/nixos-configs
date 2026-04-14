@@ -3,6 +3,11 @@
     ./niri.nix
   ];
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+  services.displayManager.ly = {
+    enable = true;
+    x11Support = false;
+    settings = {
+      animation = "gameoflife";
+    };
+  };
 }

@@ -25,6 +25,7 @@ in
     self.nixosModules.piper
     self.nixosModules.jellyfin
     self.nixosModules.flatpak
+    self.nixosModules.wireshark
 
     copyparty.nixosModules.default
 
@@ -68,7 +69,6 @@ in
         ncmpcpp
         mpc
         keepassxc
-        kdePackages.dolphin
         qpwgraph
         pavucontrol
         nomacs
@@ -116,6 +116,7 @@ in
       users.extraGroups.vboxusers.members = [ "abec" ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
+        imports = [ self.homeModules.easyeffects ];
         programs.niri.settings.outputs = {
           "DP-2" = {
             focus-at-startup = true;
