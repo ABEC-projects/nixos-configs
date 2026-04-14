@@ -9,8 +9,8 @@ let
 in
 {
   imports = [
-    flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-    flake.inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    flake.inputs.dankMaterialShell.homeModules.dank-material-shell
+    flake.inputs.dankMaterialShell.homeModules.niri
   ];
   config = {
     programs.dankMaterialShell = {
@@ -36,13 +36,19 @@ in
           repeat-rate = 35;
         };
         focus-follows-mouse.enable = true;
-        focus-follows-mouse.max-scroll-amount = "40%";
+        focus-follows-mouse.max-scroll-amount = "20%";
       };
 
       cursor = {
         size = 24;
         theme = "Vanilla-DMZ";
       };
+
+      overview = {
+        zoom = 0.25;
+      };
+
+      gestures.hot-corners.enable=false;
 
       layout = {
         empty-workspace-above-first = true;
@@ -390,6 +396,9 @@ in
         "Mod+Shift+F" = {
           action = fullscreen-window;
         };
+        "Mod+Shift+Ctrl+F" = {
+          action = toggle-windowed-fullscreen;
+        };
         "Mod+Ctrl+F" = {
           action = expand-column-to-available-width;
         };
@@ -438,6 +447,15 @@ in
         };
         "Mod+Shift+P" = {
           action = power-off-monitors;
+        };
+        "Mod+MouseBack" = {
+          action = toggle-overview;
+        };
+        "Mod+D" = {
+          action = set-dynamic-cast-window;
+        };
+        "Mod+Shift+D" = {
+          action = set-dynamic-cast-monitor;
         };
       };
     };

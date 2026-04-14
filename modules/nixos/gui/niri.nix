@@ -1,6 +1,7 @@
 {
   flake,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -21,17 +22,16 @@ in
       flake.inputs.niri.overlays.niri
     ];
     environment.systemPackages = with pkgs; [
-      fuzzel
-      swww
       unstable.quickshell
       unstable.xwayland-satellite-unstable
       socat
       # For quickshell
-      kdePackages.qtdeclarative
+      unstable.kdePackages.qtdeclarative
       wl-clipboard
     ];
     programs.niri.package = pkgs.niri-unstable;
     programs.niri.enable = true;
+    services.gnome.gnome-keyring.enable = lib.mkForce false;
 
     xdg.portal = {
       enable = true;
@@ -41,13 +41,11 @@ in
         pkgs.kdePackages.xdg-desktop-portal-kde
       ];
       config.niri = {
-        default = "gnome;kde;gtk";
+        default = "kde;gtk;gnome";
         "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";
-        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
       };
     };
-    services.gnome.gnome-keyring.enable = true;
   };
 }
