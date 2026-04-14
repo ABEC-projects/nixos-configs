@@ -22,7 +22,7 @@
     };
   };
 
-} // (if osConfig.services.desktopManager.plasma6.enable then [] else {
+} // (if osConfig.services.desktopManager.plasma6.enable then {} else {
   xdg.configFile."menus/applications.menu".source =
     pkgs.kdePackages.plasma-workspace + "/etc/xdg/menus/plasma-applications.menu";
   xdg.configFile."kdeglobals".text =
