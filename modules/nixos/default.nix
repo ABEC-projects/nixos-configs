@@ -9,7 +9,7 @@
     battery_id = lib.mkOption {
       default = null;
       example = "BAT0";
-      type = lib.types.str;
+      type =  with lib.types; uniq (nullOr str);
     };
   };
 
