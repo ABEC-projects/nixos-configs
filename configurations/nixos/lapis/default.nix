@@ -22,6 +22,8 @@ in
     self.nixosModules.wireshark
 
     {
+      battery_id = "BAT0";
+
       boot.kernelPackages = pkgs.linuxPackages_6_18;
 
       services.desktopManager.plasma6.enable = true;
