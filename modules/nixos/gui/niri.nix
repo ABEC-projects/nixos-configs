@@ -41,7 +41,8 @@ in
         pkgs.kdePackages.xdg-desktop-portal-kde
       ];
       config.niri = {
-        default = "kde;gtk;gnome";
+        default = "gnome;kde;gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
         "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";
