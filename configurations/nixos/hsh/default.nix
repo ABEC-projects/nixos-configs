@@ -26,6 +26,7 @@ in
     self.nixosModules.jellyfin
     self.nixosModules.flatpak
     self.nixosModules.wireshark
+    self.nixosModules.navidrome
 
     copyparty.nixosModules.default
 
