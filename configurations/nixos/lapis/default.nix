@@ -82,7 +82,6 @@ in
       };
 
       programs.nix-ld.enable = true;
-      services.earlyoom.enable = true;
       services.udisks2.enable = true;
 
       system.stateVersion = "24.05";
