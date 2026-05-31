@@ -13,6 +13,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./network.nix
     self.nixosModules.gui
 
     self.nixosModules.default
@@ -27,6 +28,7 @@ in
     self.nixosModules.flatpak
     self.nixosModules.wireshark
     self.nixosModules.navidrome
+    self.nixosModules.clamav
 
     copyparty.nixosModules.default
 
