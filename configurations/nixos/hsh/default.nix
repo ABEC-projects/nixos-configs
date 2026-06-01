@@ -59,13 +59,6 @@ in
         tree-sitter
         gamescope
         bashmount
-
-        self.inputs.zen-browser.packages."${system}".default
-        (import self.inputs.unstable {
-          system = pkgs.system;
-          config.allowUnfree = true;
-        }).lutris
-
         kitty
         feh
         mpv
@@ -74,42 +67,27 @@ in
         keepassxc
         qpwgraph
         pavucontrol
-        nomacs
-        protontricks
-        prismlauncher
-        qbittorrent
         r2modman
-        krita
         tetrio-desktop
         gh
         libimobiledevice
         nodejs_latest
         jq
         yt-dlp
-        localsend
-        libreoffice
-        telegram-desktop
-        obsidian
-        speedcrunch
-        prusa-slicer
         freecad-wayland
         gamemode
-        ldtk
-        shotcut
-        blender
         helix
         playerctl
-        puddletag
-        discord
         ffmpeg
         steamtinkerlaunch
-        bottles
-        anki
         jdk
         cmigemo
         cmake
         python3
         shellcheck
+        zed
+        ollama-rocm
+        self.inputs.zen-browser.packages."${system}".default
       ];
 
       # configs for modules

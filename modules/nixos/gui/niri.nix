@@ -29,7 +29,7 @@ in
       unstable.kdePackages.qtdeclarative
       wl-clipboard
     ];
-    programs.niri.package = pkgs.niri-unstable;
+    programs.niri.package = pkgs.niri;
     programs.niri.enable = true;
     services.gnome.gnome-keyring.enable = lib.mkForce false;
 
