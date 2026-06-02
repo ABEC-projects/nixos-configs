@@ -37,7 +37,7 @@ in
       nixpkgs.overlays = [
         copyparty.overlays.default
       ];
-      boot.kernelPackages = pkgs.linuxPackages_6_18;
+      boot.kernelPackages = pkgs.linuxPackages_latest;
       environment.systemPackages = with pkgs; [
         nix-alien.packages.x86_64-linux.nix-alien
         neovim
@@ -94,8 +94,8 @@ in
       # configs for modules
       transmissionUsers = [ "abec" ];
 
-      virtualisation.virtualbox.host.enable = true;
-      users.extraGroups.vboxusers.members = [ "abec" ];
+      # virtualisation.virtualbox.host.enable = true;
+      # users.extraGroups.vboxusers.members = [ "abec" ];
 
       home-manager.users = config.helpers.forEveryUser (_: {
         imports = [ self.homeModules.easyeffects ];
