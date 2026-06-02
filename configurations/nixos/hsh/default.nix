@@ -29,6 +29,7 @@ in
     self.nixosModules.wireshark
     self.nixosModules.navidrome
     self.nixosModules.clamav
+    self.nixosModules.docker
 
     copyparty.nixosModules.default
 
@@ -85,7 +86,7 @@ in
         cmake
         python3
         shellcheck
-        zed
+        zed-editor
         ollama-rocm
         self.inputs.zen-browser.packages."${system}".default
       ];
