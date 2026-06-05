@@ -38,10 +38,10 @@ in
           prepend_rules = [
           { mime = "image/gif"; use = [ "open_nomacs" "open_feh" "open"  "magick"]; }
           { mime = "image/*"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
-          { name = "*.jfif"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
-          { name = "*.jpg"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
-          { name = "*.png"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
-          { name = "*.jpeg"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
+          { url = "*.jfif"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
+          { url = "*.jpg"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
+          { url = "*.png"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
+          { url = "*.jpeg"; use = [ "open_feh" "open_nomacs" "open" "magick"]; }
           ];
         };
       };
