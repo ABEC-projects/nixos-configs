@@ -1,14 +1,14 @@
 { pkgs, config, ... }:
 {
   config = {
-    services.playerctld.enable = true;
+    # services.playerctld.enable = true;
     services.mpd = {
       enable = true;
       musicDirectory = "/home/${config.me.username}/Music/external";
+      network.listenAddress = "any";
       extraConfig = ''
         auto_update "yes"
         replaygain "track"
-        bind_to_address "192.168.88.73"
         audio_output {
           type            "pulse"
           name            "default (pulse audio)"
@@ -23,7 +23,9 @@
 
       '';
     };
-    services.mpd-mpris.enable = true;
+    services.mpdris2 = {
+      enable = true;
+    };
     home.packages = with pkgs; [
       mpd
       mpc
@@ -32,8 +34,8 @@
       pms
       picard
       rsgain
-      supersonic-wayland
-      jellyfin-desktop
+      # supersonic-wayland
+      # jellyfin-desktop
     ];
   };
 }
